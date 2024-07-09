@@ -21,7 +21,9 @@ test(
     render(<Greeting />);
 
     //act
-   
+    const buttonElement = screen.getByRole('button');
+    userEvent.click(buttonElement);
+
 
     //assert
    const outputElement =  screen.getByText('changed', {exact:false} )              //exact-true match lower and upper case to i.e exact by default its exact
@@ -34,9 +36,7 @@ test(
    render(<Greeting />);
 
    //act
-   const buttonElement = screen.getByRole('button');
-    userEvent.click(buttonElement);
-
+   //nothing to do now
 
 
    //assert
@@ -54,7 +54,7 @@ test("does not render 'its good to see you' when button was clicked ",()=>{
 
 
     //assert
-   const outputElement =  screen.queryByText('its good to see you')                //query to check null              
+   const outputElement =  screen.queryByText('its good to you')                //query to check null              
    expect(outputElement).toBeNull();                                                 
 })
 
